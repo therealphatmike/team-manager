@@ -1,0 +1,41 @@
+# POST a new team
+POST http://localhost/api/teams
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Bob Richpants Racing",
+    "website": "gofastracing.com"
+}
+
+###
+
+# GET all teams
+GET http://localhost/api/teams
+Content-Type: application/json
+Accept: application/json
+
+###
+
+# GET a specific team
+GET http://localhost/api/teams/98aab37c-db71-4582-a4cf-97749994f9de
+Content-Type: application/json
+Accept: application/json
+
+###
+
+# PUT (update) a team
+PUT http://localhost/api/teams/98aab37c-db71-4582-a4cf-97749994f9de
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Go Slow Racing"
+}
+
+###
+
+# DELETE a team
+DELETE http://localhost/api/teams/98aab37c-db71-4582-a4cf-97749994f9de
+Content-Type: application/json
+Accept: application/json
