@@ -13,7 +13,7 @@ focus on providing value faster. There's A LOT more to Laravel than what I am sh
 
 ## Schema Diagram
 ```mermaid
-Team Manager Data Schema;
+graph TD;
 A[Team] --> B[Car];
 ```
 
