@@ -1,0 +1,43 @@
+# POST a new driver
+POST http://localhost/api/drivers
+Content-Type: application/json
+Accept: application/json
+
+{
+    "firstName": "Rob",
+    "lastName": "Rockrass",
+    "email": "rrockrass@bigbrakesracing.com",
+    "teamId": "98aab390-befd-49f2-8d76-6b5659c9247f"
+}
+
+###
+
+# GET all drivers
+GET http://localhost/api/drivers
+Content-Type: application/json
+Accept: application/json
+
+###
+
+# GET a specific driver
+GET http://localhost/api/drivers/98aab80f-1c20-4ac4-bedd-6b4543a99012
+Content-Type: application/json
+Accept: application/json
+
+###
+
+# PUT (update) a driver
+PUT http://localhost/api/drivers/98aab80f-1c20-4ac4-bedd-6b4543a99012
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "robrockrass@bigbrakesracing.com"
+}
+
+###
+
+# DELETE a driver
+DELETE http://localhost/api/drivers/{id}
+Content-Type: application/json
+Accept: application/json

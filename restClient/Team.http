@@ -4,7 +4,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "name": "Bob Richpants Racing",
+    "name": "Go Fast Racing",
     "website": "gofastracing.com"
 }
 
