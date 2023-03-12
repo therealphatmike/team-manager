@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Http\Request;
@@ -22,7 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware([])->group(function () {
     Route::apiResources([
-        'teams' => TeamController::class,
+        'cars' => CarController::class,
         'drivers' => DriverController::class,
+        'teams' => TeamController::class,
     ]);
 });

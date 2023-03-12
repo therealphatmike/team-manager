@@ -15,6 +15,11 @@ class Team extends Model
         'website',
     ];
 
+    public function cars()
+    {
+        return $this->hasMany(Car::class, 'teamId');
+    }
+
     public function drivers()
     {
         return $this->hasMany(Driver::class, 'teamId');

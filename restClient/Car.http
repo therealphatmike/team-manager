@@ -1,0 +1,42 @@
+# POST a new car
+POST http://localhost/api/cars
+Content-Type: application/json
+Accept: application/json
+
+{
+    "number": 11,
+    "teamId": "98aab390-befd-49f2-8d76-6b5659c9247f",
+    "driverId": "98aab80f-1c20-4ac4-bedd-6b4543a99012"
+}
+
+###
+
+# GET all cars
+GET http://localhost/api/cars?withDriver=true&withTeam=true
+Content-Type: application/json
+Accept: application/json
+
+###
+
+# GET a specific car
+GET http://localhost/api/cars/98abaeaa-5a9f-43be-8f94-a16f0492bd9e?withDriver=true&withTeam=true
+Content-Type: application/json
+Accept: application/json
+
+###
+
+# PUT (update) a car
+PUT http://localhost/api/cars/98abaeaa-5a9f-43be-8f94-a16f0492bd9e
+Content-Type: application/json
+Accept: application/json
+
+{
+    "number": "99"
+}
+
+###
+
+# DELETE a car
+DELETE http://localhost/api/cars/{id}
+Content-Type: application/json
+Accept: application/json

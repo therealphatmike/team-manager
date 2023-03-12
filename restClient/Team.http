@@ -11,7 +11,7 @@ Accept: application/json
 ###
 
 # GET all teams
-GET http://localhost/api/teams?withDrivers=true
+GET http://localhost/api/teams?withDrivers=true&withCars=true
 Content-Type: application/json
 Accept: application/json
 

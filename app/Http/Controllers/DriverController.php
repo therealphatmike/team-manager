@@ -17,9 +17,13 @@ class DriverController extends Controller
     public function index(Request $request)
     {
         Log::info("DriverController->index()");
+
         $relationships = [];
         if($request->query('withTeam')) {
             array_push($relationships, 'team');
+        }
+        if($request->query('withCar')) {
+            array_push($relationships, 'car');
         }
 
         return DriverResource::collection(Driver::with($relationships)->get());
@@ -53,6 +57,9 @@ class DriverController extends Controller
         if($request->query('withTeam')) {
             array_push($relationships, 'team');
         }
+        if($request->query('withCar')) {
+            array_push($relationships, 'car');
+        }
 
         return new DriverResource($driver->load($relationships));
     }
@@ -69,9 +76,10 @@ class DriverController extends Controller
             'lastName',
             'email',
             'teamId',
+            'carId',
         ]));
 
-        return new DriverResource($driver);
+        return new DriverResource($driver->load(['team', 'car']));
     }
 
     /**

@@ -6,25 +6,23 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Driver extends Model
+class Car extends Model
 {
     use HasFactory, HasUuids;
 
     protected $fillable = [
-        'firstName',
-        'lastName',
-        'email',
+        'number',
         'teamId',
-        'carId',
+        'driverId',
     ];
 
-    protected $casts = [
-        'email' => 'encrypted',
+    protected $guarded = [
+        'teamId',
     ];
 
-    public function car()
+    public function driver()
     {
-        return $this->belongsTo(Car::class, 'carId');
+        return $this->hasOne(Driver::class, 'carId');
     }
 
     public function team()

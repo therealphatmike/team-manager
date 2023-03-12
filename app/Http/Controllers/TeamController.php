@@ -22,6 +22,9 @@ class TeamController extends Controller
         if($request->query('withDrivers')) {
             array_push($relationships, 'drivers');
         }
+        if($request->query('withCars')) {
+            array_push($relationships, 'cars');
+        }
 
         return TeamResource::collection(Team::with($relationships)->get());
     }
@@ -51,6 +54,9 @@ class TeamController extends Controller
         $relationships = [];
         if($request->query('withDrivers')) {
             array_push($relationships, 'drivers');
+        }
+        if($request->query('withCars')) {
+            array_push($relationships, 'cars');
         }
 
         return new TeamResource($team->load($relationships));
