@@ -17,6 +17,6 @@ class Team extends Model
 
     public function drivers()
     {
-        return $this->hasMany(Driver::class);
+        return $this->hasMany(Driver::class, 'teamId');
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Requests\StoreDriverRequest;
 use App\Http\Requests\UpdateDriverRequest;
 use App\Http\Resources\DriverResource;
 use App\Models\Driver;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class DriverController extends Controller
@@ -13,10 +14,15 @@ class DriverController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         Log::info("DriverController->index()");
-        return DriverResource::collection(Driver::all());
+        $relationships = [];
+        if($request->query('withTeam')) {
+            array_push($relationships, 'team');
+        }
+
+        return DriverResource::collection(Driver::with($relationships)->get());
     }
 
     /**
@@ -39,10 +45,16 @@ class DriverController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Driver $driver)
+    public function show(Request $request, Driver $driver)
     {
         Log::info("DriverController->show($driver->id)");
-        return new DriverResource($driver);
+
+        $relationships = [];
+        if($request->query('withTeam')) {
+            array_push($relationships, 'team');
+        }
+
+        return new DriverResource($driver->load($relationships));
     }
 
     /**

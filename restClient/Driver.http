@@ -13,7 +13,7 @@ Accept: application/json
 ###
 
 # GET all drivers
-GET http://localhost/api/drivers
+GET http://localhost/api/drivers?withTeam=true
 Content-Type: application/json
 Accept: application/json
 

@@ -11,14 +11,14 @@ Accept: application/json
 ###
 
 # GET all teams
-GET http://localhost/api/teams
+GET http://localhost/api/teams?withDrivers=true
 Content-Type: application/json
 Accept: application/json
 
 ###
 
 # GET a specific team
-GET http://localhost/api/teams/98aab37c-db71-4582-a4cf-97749994f9de
+GET http://localhost/api/teams/98aab390-befd-49f2-8d76-6b5659c9247f?withDrivers=true
 Content-Type: application/json
 Accept: application/json
 

@@ -6,6 +6,7 @@ use App\Http\Requests\StoreTeamRequest;
 use App\Http\Requests\UpdateTeamRequest;
 use App\Http\Resources\TeamResource;
 use App\Models\Team;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class TeamController extends Controller
@@ -13,10 +14,16 @@ class TeamController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         Log::info("TeamController->index()");
-        return TeamResource::collection(Team::all());
+
+        $relationships = [];
+        if($request->query('withDrivers')) {
+            array_push($relationships, 'drivers');
+        }
+
+        return TeamResource::collection(Team::with($relationships)->get());
     }
 
     /**
@@ -37,10 +44,16 @@ class TeamController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Team $team)
+    public function show(Request $request, Team $team)
     {
         Log::info("TeamController->show($team->id)");
-        return new TeamResource($team);
+
+        $relationships = [];
+        if($request->query('withDrivers')) {
+            array_push($relationships, 'drivers');
+        }
+
+        return new TeamResource($team->load($relationships));
     }
 
     /**

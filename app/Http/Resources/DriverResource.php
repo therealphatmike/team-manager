@@ -14,6 +14,13 @@ class DriverResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'firstName' => $this->firstName,
+            'lastName' => $this->lastName,
+            'email' => $this->email,
+            'teamId' => $this->teamId,
+            'team' => TeamResource::make($this->whenLoaded('team')),
+        ];
     }
 }
