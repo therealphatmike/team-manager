@@ -13,6 +13,5 @@ Ok, what's a race team without a driver? Pretty much just a mechanic shop. Let's
 1. Implement all of the methods in our DriverController
 1. Add our routes to `routes/api.php`
 1. Run the migrations via `php artisan migrate` and test the endpoints.
-1. Once you're done testing, run `php artisan migrate:rollback --steps=1` to undo the Driver migration, becuase we need to setup relationships in the next step.
 
-Once  this all works, switch to `3-Connect-Driver-And-Team` branch to proceed.
+Once your endpoints work, switch to the branch `3-Connect-Driver-And-Team`
