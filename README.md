@@ -1,3 +1,43 @@
+# Team Manager
+This is a demo application to show some basics of Laravel to MTSU ACM members on 03/24/2023.
+At the bottom of this read me is more information about Laravel.
+
+## ./http directory
+This directory contains `.http` files intended to be used with the RestClient plug-in for VS Code which simplifies 
+making HTTP requests. This is **not** to be confused with the `app/Http/` directory which contains resources related to handling
+HTTP requests.
+
+## This is a shallow demo
+Laravel provides a ton of functionality to make most web development work a lot easier and more productive. Which lets you
+focus on providing value faster. There's A LOT more to Laravel than what I am showing here, and maybe I can come back and dive deeper.
+
+## What we'll make
+We will build an API to manage a hypothetical race team. It will have Teams, Drivers, and Cars. We should be able to List, Get, Create, Update, Delete each of these resources and fetch the related models via query parameters. Below is a ERD of what we're building.
+
+## Schema Diagram
+```mermaid
+erDiagram
+    TEAM ||--o{ DRIVER : hasMany
+    TEAM ||--o{ CAR : hasMany
+    CAR ||--|| DRIVER : drivenBy
+    TEAM{
+        string name
+        string website
+    }
+    DRIVER {
+        string firstName
+        string lastName
+        string email
+        uuid teamId
+        uuid carId
+    }
+    CAR {
+        integer number
+        uuid teamId
+        uuid carId
+    }
+```
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
